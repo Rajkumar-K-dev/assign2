@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewed Awakening</title>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lora', serif;
+            background-color: #f5ebe0;
+        }
+        
+        .header {
+            background-image: url('cff.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .hero {
+            text-align: center;
+            color: white;
+            margin-top: -100px;
+        }
+        .hero h1 {
+            font-size: 3em;
+        }
+        .btn {
+            background-color: #c07f00;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .menu {
+            padding: 50px;
+            text-align: center;
+        }
+        .menu h2 {
+            color: #3e2723;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .menu-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .about {
+            text-align: center;
+            padding: 50px;
+            background-color: #d7ccc8;
+        }
+        .contact {
+            padding: 50px;
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            background-color: #3e2723;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Brewed Awakening</div>
+        <nav class="nav">
+            <a href="#menu">Menu</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <div class="hero">
+        <h1>Welcome to Brewed Awakening</h1>
+        <a href="#menu" class="btn">View Menu</a>
+    </div>
+    
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="esp.jpg" alt="Espresso">
+                <h3>Espresso</h3>
+                <p>Strong and bold espresso shot.</p>
+                <p>$3.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="lat.png" alt="Latte">
+                <h3>Latte</h3>
+                <p>Delicious steamed milk with espresso.</p>
+                <p>$4.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="pan.jpg" alt="Pancakes">
+                <h3>Pancakes</h3>
+                <p>Fluffy pancakes with syrup.</p>
+                <p>$5.50</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We are passionate about brewing the best coffee and serving delightful breakfast options. Our mission is to create a cozy space where coffee lovers can gather and enjoy premium quality drinks and food.</p>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Brewed Awakening. All rights reserved.</p>
+    </footer>
+</body>
+</html>
