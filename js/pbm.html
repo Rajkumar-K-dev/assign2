@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Problem Solving</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color:red;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: yellow;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .problem {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: blue;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>JavaScript Problem Solving</h2>
+        
+        <div class="problem">
+            <h3>1. ATM Withdrawal</h3>
+            <input type="number" id="atm-balance" placeholder="Enter Balance">
+            <input type="number" id="atm-amount" placeholder="Enter Amount">
+            <input type="number" id="atm-pin" placeholder="Set PIN">
+            <input type="number" id="atm-entered-pin" placeholder="Enter PIN">
+            <button onclick="atmWithdrawal()">Withdraw</button>
+            <p id="atm-result"></p>
+        </div>
+        
+        <div class="problem">
+            <h3>2. Online Shopping Discount</h3>
+            <input type="number" id="shopping-amount" placeholder="Enter Order Amount">
+            <button onclick="calculateFinalAmount()">Calculate</button>
+            <p id="shopping-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>3. Student Grading</h3>
+            <input type="number" id="marks" placeholder="Enter Marks">
+            <input type="number" id="attendance" placeholder="Enter Attendance %">
+            <button onclick="calculateGrade()">Get Grade</button>
+            <p id="grade-result"></p>
+        </div>
+        
+        <div class="problem">
+            <h3>4. Smart Traffic Light</h3>
+            <input type="text" id="traffic-density" placeholder="Enter Traffic Density">
+            <button onclick="trafficLightControl()">Check Signal Time</button>
+            <p id="traffic-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>5. Movie Ticket Pricing</h3>
+            <input type="number" id="age" placeholder="Enter Age">
+            <input type="time" id="show-time">
+            <button onclick="calculateTicketPrice()">Calculate Ticket Price</button>
+            <p id="ticket-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>6. Job Application Filter</h3>
+            <input type="number" id="job-age" placeholder="Enter Age">
+            <input type="number" id="job-experience" placeholder="Years of Experience">
+            <input type="text" id="job-qualification" placeholder="Enter Qualification">
+            <button onclick="isEligibleForJob()">Check Eligibility</button>
+            <p id="job-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>7. E-commerce Coupon Redemption</h3>
+            <input type="number" id="coupon-amount" placeholder="Enter Order Amount">
+            <input type="text" id="coupon-code" placeholder="Enter Coupon Code">
+            <button onclick="applyCoupon()">Apply Coupon</button>
+            <p id="coupon-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>8. Fitness Membership Plan</h3>
+            <select id="plan-type">
+                <option value="Basic">Basic</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
+            </select>
+            <button onclick="choosePlan()">Select Plan</button>
+            <p id="plan-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>9. Electricity Bill Calculation</h3>
+            <input type="number" id="electricity-units" placeholder="Enter Units Consumed">
+            <input type="time" id="electricity-time">
+            <button onclick="calculateElectricityBill()">Calculate Bill</button>
+            <p id="electricity-result"></p>
+        </div>
+
+        <div class="problem">
+            <h3>10. Flight Ticket Booking</h3>
+            <input type="text" id="flight-class" placeholder="Enter Class (Economy, Business, First)">
+            <input type="number" id="luggage-weight" placeholder="Enter Luggage Weight (kg)">
+            <input type="checkbox" id="student-discount"> Student Discount
+            <input type="checkbox" id="senior-discount"> Senior Citizen Discount
+            <button onclick="calculateFlightFare()">Calculate Fare</button>
+            <p id="flight-result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

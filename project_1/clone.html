@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Body */
+        body {
+            margin: 0;
+            padding-top: 100px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: red;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .contact-btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: white;
+            padding: 10px 0;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-bar ul li {
+            display: inline;
+            position: relative;
+        }
+
+        .nav-bar ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .nav-bar ul li a:hover {
+            background: red;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .logo {
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Image Container */
+        .image-container {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+        }
+
+        .explore-box {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: red;
+            color: white;
+            padding: 15px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Our Courses Section */
+        .courses-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .courses-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .courses-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .course-card {
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .course-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 15px;
+        }
+
+        .learn-more-btn {
+            background: red;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            color: white;
+            padding: 30px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            width: 30%;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+        .placements-section {
+            background: black;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .placements-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .placements-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .placement-card {
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .placement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .placement-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .placement-card h3 {
+            color: black;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <span> <b>Enquire Now:</b></span>
+        <button class="contact-btn">📞 Hyderabad: 9951666670</button>
+        <button class="contact-btn">📞 Pune: 9951666671</button>
+        <button class="contact-btn">📞 Bengaluru: 9951666672</button>
+    </div>
+    <nav class="nav-bar">
+        <ul>
+            <li><img src="logo.png" class="logo"></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Internship</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">&#8377; Pay Now</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Image Container -->
+<div class="image-container">
+    <img src="courses.png" alt="Data Science Training">
+    <div class="explore-box">Explore Courses</div>
+</div>
+
+<!-- Our Courses Section -->
+<div class="courses-section">
+    <div class="courses-title">Our Courses</div>
+    <div class="courses-container">
+        <div class="course-card">
+            <h3>Full Stack Development</h3>
+            <p>Master front-end & back-end development with hands-on projects.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+
+        <div class="course-card">
+            <h3>Data Science</h3>
+            <p>Learn machine learning, AI, and analytics with real-world data.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+
+        <div class="course-card">
+            <h3>Generative AI</h3>
+            <p>Build intelligent AI models with deep learning and automation.</p>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+    </div>
+</div>
+<div class="placements-section">
+    <div class="placements-title">Our Placements</div>
+    <div class="placements-container">
+        <div class="placement-card">
+            <img src="pl1.png" alt="Placement 1">
+        </div>
+
+        <div class="placement-card">
+            <img src="pl2.png" alt="Placement 2">
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>Email: info@innomatics.in</p>
+        <p>Phone: +91 9951666670</p>
+    </div>
+    <div class="footer-column">
+        <h3>Quick Links</h3>
+        <p><a href="#">About Us</a></p>
+        <p><a href="#">Courses</a></p>
+        <p><a href="#">Internships</a></p>
+    </div>
+    <div class="footer-column">
+        <h3>Follow Us</h3>
+        <p class="social-icons">
+            <a href="#">📘 Facebook</a>
+            <a href="#">📷 Instagram</a>
+            <a href="#">🐦 Twitter</a>
+        </p>
+    </div>
+</footer>
+<div style="background: black; color: white; text-align: center; padding: 10px; font-size: 14px;">
+    © 2024 Innomatics Research Labs Pvt Ltd, All rights reserved.
+</div>
+
+</body>
+</html>
