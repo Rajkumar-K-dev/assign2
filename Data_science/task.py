@@ -1,15 +1,9 @@
 import streamlit as st
 import google.generativeai as genai
-
-# Set your API key
-genai.configure(api_key="AIzaSyAp-mvnhEHCS6zTopVAKjyQF6j1GO-QyAk")
-
-
+genai.configure(api_key="Api-key")
 st.title("GenAI Code Reviewer")
 st.write("Submit your Python code for AI-powered review using Google Generative AI.")
-
 code_input = st.text_area("Enter Python code:")
-
 def review_code(code):
     try:
         model = genai.GenerativeModel("gemini-pro")
