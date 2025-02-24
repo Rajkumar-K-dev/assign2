@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🃏 Memory Match Game 🎮</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #deb887;
+            margin: 0;
+            padding: 0;
+        }
+        #landing-page, #game-container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            background-color: #8b4513;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #a0522d;
+        }
+        #game-container {
+            display: none;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #d2691e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+        .matched {
+            background-color: #228b22;
+            color: white;
+        }
+        #score, #timer {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="landing-page">
+        <h1>🃏 Memory Match Game 🎮</h1>
+        <p>Select a category to start:</p>
+        <button onclick="startGame('fruits')">🍎 Fruits</button>
+        <button onclick="startGame('emojis')">😀 Emojis</button>
+        <button onclick="startGame('animals')">🐶 Animals</button>
+        <button onclick="startGame('planets')">🪐 Planets</button>
+    </div>
+    
+    <div id="game-container">
+        <h2>🃏 Memory Match Game 🎮</h2>
+        <div id="score">Score: 0</div>
+        <div id="timer">Time Left: 30s ⏳</div>
+        <div id="grid"></div>
+        <button onclick="resetGame()">🔄 Restart</button>
+    </div>
+    
+    <script>
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+
+        const categories = {
+            fruits: ['🍎', '🍌', '🍓', '🍊', '🍎', '🍌', '🍓', '🍊'],
+            emojis: ['😀', '😎', '😂', '😍', '😀', '😎', '😂', '😍'],
+            animals: ['🐶', '🐱', '🐭', '🐰', '🐶', '🐱', '🐭', '🐰'],
+            planets: ['🌍', '🪐', '🌕', '🌟', '🌍', '🪐', '🌕', '🌟']
+        };
+
+        function startGame(category) {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+            generateCards(category);
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').innerText = `Time Left: ${timeLeft}s ⏳`;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    alert('⏳ Game Over!');
+                    resetGame();
+                }
+            }, 1000);
+        }
+
+        function generateCards(category) {
+            let shuffled = categories[category].sort(() => 0.5 - Math.random());
+            let grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            shuffled.forEach((symbol, index) => {
+                let card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.symbol = symbol;
+                card.addEventListener('click', flipCard);
+                grid.appendChild(card);
+            });
+        }
+
+        function flipCard() {
+            if (flippedCards.length < 2 && !this.classList.contains('matched')) {
+                this.innerText = this.dataset.symbol;
+                flippedCards.push(this);
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            if (flippedCards[0].dataset.symbol === flippedCards[1].dataset.symbol) {
+                flippedCards.forEach(card => card.classList.add('matched'));
+                score += 10;
+                matchedPairs++;
+                if (matchedPairs === 4) {
+                    clearInterval(timer);
+                    alert('🎉 You Win! Final Score: ' + score);
+                    resetGame();
+                }
+            } else {
+                flippedCards.forEach(card => card.innerText = '');
+            }
+            flippedCards = [];
+            document.getElementById('score').innerText = `Score: ${score}`;
+        }
+
+        function resetGame() {
+            document.getElementById('landing-page').style.display = 'block';
+            document.getElementById('game-container').style.display = 'none';
+            flippedCards = [];
+            matchedPairs = 0;
+            score = 0;
+            timeLeft = 30;
+            document.getElementById('score').innerText = `Score: 0`;
+            document.getElementById('timer').innerText = `Time Left: 30s ⏳`;
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>
